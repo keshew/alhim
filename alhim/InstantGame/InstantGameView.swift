@@ -200,7 +200,7 @@ struct InstantGameView: View {
                                                                 .aspectRatio(contentMode: .fit)
                                                                 .frame(width: 14, height: 14)
                                                             
-                                                            Text("View Achievements (1/8)")
+                                                            Text("View Achievements (\(manager.completedAchievementsCount)/\(manager.achievements.count))")
                                                                 .font(.custom("Poppins-Bold", size: 15))
                                                                 .foregroundStyle(Color.white)
                                                         }

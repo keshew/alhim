@@ -19,7 +19,6 @@ class UserDefaultsManager: ObservableObject {
         coins = max(coins - amount, 0)
     }
     
-    // Achievements
     @Published var achievements: [Missions] = [] {
         didSet {
             saveAchievements()
@@ -27,7 +26,6 @@ class UserDefaultsManager: ObservableObject {
         }
     }
     
-    // Missions
     @Published var missions: [Missions] = [] {
         didSet {
             saveMissions()

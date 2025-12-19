@@ -16,7 +16,7 @@ struct alhimApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AlhimMenuView()
+            TabBarView()
         }
     }
 }

@@ -1,5 +1,17 @@
 import SwiftUI
 
+extension UserDefaultsManager {
+    var completedAchievementsCount: Int {
+        achievements.filter { $0.isDone }.count
+    }
+    
+    var achievementsProgress: Double {
+        let total = Double(achievements.count)
+        let completed = Double(completedAchievementsCount)
+        return total > 0 ? completed / total : 0
+    }
+}
+
 struct AlhimAchievView: View {
     @StateObject var AlhimAchievModel =  AlhimAchievViewModel()
     @State  var coin = UserDefaultsManager.shared.coins
@@ -94,7 +106,7 @@ struct AlhimAchievView: View {
                                                             .resizable()
                                                             .frame(width: 64, height: 64)
                                                         
-                                                        Text("1/8")
+                                                        Text("\(manager.completedAchievementsCount)/\(manager.achievements.count)")
                                                             .font(.custom("Poppins-Bold", size: 16))
                                                             .foregroundStyle(Color.white)
                                                         
@@ -110,17 +122,18 @@ struct AlhimAchievView: View {
                                                                 
                                                                 Rectangle()
                                                                     .fill(Color(red: 239/255, green: 57/255, blue: 209/255))
-                                                                    .frame(width: geometry.size.width - 100, height: geometry.size.height)
+                                                                    .frame(width: geometry.size.width * manager.achievementsProgress, height: geometry.size.height)
                                                             }
                                                             .cornerRadius(10)
                                                         }
                                                         .frame(height: 10)
                                                         .padding(.horizontal)
                                                         
-                                                        Text("13% Complete")
+                                                        Text("\(Int(manager.achievementsProgress * 100))% Complete")
                                                             .font(.custom("Poppins-Light", size: 12))
                                                             .foregroundStyle(Color.white)
                                                     }
+
                                                 }
                                         }
                                         .frame(width: 540, height: 170)
