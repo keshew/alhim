@@ -1,9 +1,3 @@
-//
-//  alhimTests.swift
-//  alhimTests
-//
-//  Created by Артём Коротков on 17.12.2025.
-//
 
 import XCTest
 @testable import alhim

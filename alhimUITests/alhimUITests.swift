@@ -1,9 +1,3 @@
-//
-//  alhimUITests.swift
-//  alhimUITests
-//
-//  Created by Артём Коротков on 17.12.2025.
-//
 
 import XCTest
 
